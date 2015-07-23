@@ -10,3 +10,10 @@ class FibonacciTest(unittest.TestCase):
         assume(n > 0)
         assume(n < 20)
         assert isinstance(fibonacci(n), n.__class__)
+
+    @given(strategies.integers(min_value=0, max_value=20))
+    def test_fibonacci_sequence(self, n):
+        x = fibonacci(n)
+        y = fibonacci(n+1)
+        z = fibonacci(n+2)
+        assert x + y == z
