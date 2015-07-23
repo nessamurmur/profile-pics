@@ -7,3 +7,6 @@ import validators
 
 
 class ImporterTest(unittest.TestCase):
+    @given(strategies.text())
+    def test_importer_returns_an_image(self, user_id):
+        assert "gif" in pic_importer.picture_for(user_id)
