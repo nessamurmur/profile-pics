@@ -7,6 +7,6 @@ import validators
 
 
 class ImporterTest(unittest.TestCase):
-    @given(strategies.text())
+    @given(strategies.basic(generate=lambda _random, _: str(uuid.uuid4())))
     def test_importer_returns_an_image(self, user_id):
         assert "gif" in pic_importer.picture_for(user_id)
